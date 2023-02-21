@@ -1,3 +1,6 @@
-import './module'
 import './scss/index.scss'
+import './module'
+
 console.log('Test');
+
+
