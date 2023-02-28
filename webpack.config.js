@@ -67,10 +67,9 @@ module.exports = {
                     // "style-loader",
                     {
                         loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDev,
-                            reloadeAll: true,
-                        }
+                        // options: {
+                        //     hmr: isDev,
+                        // }
                     },
                     {
                         loader: "css-loader",
