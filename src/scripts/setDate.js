@@ -11,6 +11,5 @@ export function setDate() {
             'Сентября', 'Октября', 'Ноября', 'Декабря']
         return month[date.getMonth()]
     }
-
     day.innerHTML = `${getWeekDay(date)}, ${date.getDate()} ${getMon(date)}`
 }

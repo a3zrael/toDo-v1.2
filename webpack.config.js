@@ -48,7 +48,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, 'src/to-do.png'),
+                    from: path.resolve(__dirname, ''),
                     to: path.resolve(__dirname, 'dist')
                 },
 
