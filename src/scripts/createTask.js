@@ -1,5 +1,6 @@
-export function createTask(task) {
-    console.log(task);
+import { tasks } from "..";
+import { removeTask } from "./removeTask";
+export function createTask(task, id) {
     const li = document.createElement('li')
     const text = document.createElement('span')
     const btn = document.createElement('button')
@@ -18,30 +19,4 @@ export function createTask(task) {
     li.append(text, btn)
 
     return li;
-}
-
-let id = 1
-
-export function pushObj() {
-    let valueInput = input.value
-    const task = {
-        id: id,
-        title: valueInput,
-    }
-
-    if (!valueInput) {
-        return
-    } else tasks.push(task);
-
-    setData();
-
-    let taskElem = createTask(task);
-
-    ul.prepend(taskElem);
-
-    removeValue()
-
-    id = id + 1
-
-    return task;
 }
