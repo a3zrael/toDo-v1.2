@@ -29,6 +29,9 @@ export function pushObj(tasks) {
     function removeValue() {
         input.value = ''
     }
+
+    removeValue()
+
     console.log('click');
     return task;
 }
