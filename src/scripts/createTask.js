@@ -1,5 +1,6 @@
 import { tasks } from "..";
 import { removeTask } from "./removeTask";
+
 export function createTask(task, id) {
     const li = document.createElement('li')
     const text = document.createElement('span')

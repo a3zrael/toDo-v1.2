@@ -4,7 +4,7 @@ import { ul } from "./renderTask";
 import { tasks } from "..";
 
 
-export let id = 0
+export let id = 0;
 
 export function pushObj(tasks) {
     const input = document.querySelector('.form__input')
@@ -31,7 +31,6 @@ export function pushObj(tasks) {
     }
 
     removeValue()
-
     console.log('click');
     return task;
 }

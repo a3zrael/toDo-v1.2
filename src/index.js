@@ -13,11 +13,7 @@ function initApp() {
     const button = document.querySelector('.form__btn')
 
     button.addEventListener('click', () => pushObj(tasks))
-
     setDate()
     createTask(id)
 }
-
 initApp()
-
-
