@@ -1,4 +1,7 @@
+import React from "react";
+
 import "./index.scss";
+import { Task } from "../../../features/task";
 
 export const Content = () => {
   return (
@@ -21,11 +24,18 @@ export const Content = () => {
         </div>
         <div className="todos">
           {/* //TODO infinite scroll Отрисовка с бека */}
-          <div>task</div>
-          <div>task</div>
-          <div>task</div>
-          <div>task</div>
-          <div>task</div>
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
+          <Task />
         </div>
       </div>
     </div>
