@@ -7,7 +7,7 @@ export const Task = () => {
   return (
     <div className="wrapTodo">
       <div className="todo">
-        task <Checkbox />
+        <span>task</span> <Checkbox />
       </div>
       <div className="description">description</div>
     </div>
