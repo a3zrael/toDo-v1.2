@@ -1,0 +1,12 @@
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\bin\Debug\net8.0\ToDoDomain.deps.json
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\bin\Debug\net8.0\ToDoDomain.dll
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\bin\Debug\net8.0\ToDoDomain.pdb
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\obj\Debug\net8.0\ToDoDomain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\obj\Debug\net8.0\ToDoDomain.AssemblyInfoInputs.cache
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\obj\Debug\net8.0\ToDoDomain.AssemblyInfo.cs
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\obj\Debug\net8.0\ToDoDomain.csproj.CoreCompileInputs.cache
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\obj\Debug\net8.0\ToDoDomain.sourcelink.json
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\obj\Debug\net8.0\ToDoDomain.dll
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\obj\Debug\net8.0\refint\ToDoDomain.dll
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\obj\Debug\net8.0\ToDoDomain.pdb
+C:\Users\Aleksey\Documents\backProjects\toDoWebAPI\toDo-v1.2\server\Core\ToDo.Domain\obj\Debug\net8.0\ref\ToDoDomain.dll
