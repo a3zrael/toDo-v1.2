@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 var _connection = builder.Configuration.GetConnectionString("connection");
+
 builder.Services.AddDbContext<ToDoDbContext>(options => options.UseNpgsql(_connection));
 
 var app = builder.Build();

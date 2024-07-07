@@ -1,6 +1,8 @@
-﻿public class ToDo {
+﻿namespace ToDoDTOs;
+
+public class ToDoItemDTO
+{
     public string Id { get; set; } = null!;
     public string Title { get; set; } = null!;
-    public string Details { get; set; } = "";
     public bool Completed { get; set; }
 }
