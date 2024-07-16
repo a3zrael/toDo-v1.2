@@ -11,8 +11,7 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\DAL\ToDoPersistence\ToDoPersistence.csproj" />
+  <ItemGroup>    
     <ProjectReference Include="..\..\BLL\ToDoDTOs\ToDoDTOs.csproj" />
   </ItemGroup>
 

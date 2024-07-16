@@ -10,7 +10,7 @@ var app = builder.Build();
 
 app.MapGet("/api/todolist", async (ToDoDbContext db) => await db.toDos.ToListAsync());
 
-app.MapGet("/api/todolist/{id}", async (string id, ToDoDbContext db) => {
+/*app.MapGet("/api/todolist/{id}", async (string id, ToDoDbContext db) => {
     ToDo? td = await db.toDos.FirstOrDefaultAsync(td => td.Id == id);
     if (td == null) return Results.NotFound(new {message = "Пользователь не найден"});
     return Results.Json(td);
@@ -39,6 +39,6 @@ app.MapPut("/api/todolist/{id}", async (ToDo _td, ToDoDbContext db) => {
     td.Completed = _td.Completed;
     await db.SaveChangesAsync();
     return Results.Json(td);
-});
+});*/
 
 app.Run();

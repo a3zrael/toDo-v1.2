@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\ToDoDomain\ToDoDomain.csproj" />
+    <ProjectReference Include="..\ToDoInterfacesDAL\ToDoInterfacesDAL.csproj" />
   </ItemGroup>
 
 </Project>
