@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Commands\CreateCommand\" />
-    <Folder Include="CQRS\Commands\DeleteCommand\" />
-    <Folder Include="CQRS\Commands\UpdateCommand\" />
-    <Folder Include="CQRS\Queries\GetAllQuery\" />
-    <Folder Include="CQRS\Queries\GetQuery\" />
+    <ProjectReference Include="..\ToDoInterfaces\ToDoInterfaces.csproj" />
+    <ProjectReference Include="..\..\DAL\ToDoInterfacesDAL\ToDoInterfacesDAL.csproj" />
+    <ProjectReference Include="..\ToDoDTOs\ToDoDTOs.csproj" />
+    <ProjectReference Include="..\..\Core\ToDoDomain\ToDoDomain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ToDoPersistence;
 
-public class ToDoDbContext : DbContext {
+public class ToDoDbContext : DbContext, IToDoDbContext {
     public DbSet<ToDo> toDos { get; set; } = null!;
 
     public ToDoDbContext (DbContextOptions<ToDoDbContext> options) : base(options) { 
@@ -8,10 +9,17 @@ public class ToDoDbContext : DbContext {
     }
 
     protected override void OnModelCreating (ModelBuilder modelBuilder) {
-        modelBuilder.Entity<ToDo>().HasData(
-            new ToDo{ Id = "1", Title = "Работа", Details = "Сделать 2 задачи", Completed = false },
-            new ToDo{ Id = "2", Title = "Учеба", Details = "Прочитать учебник", Completed = false },
-            new ToDo{ Id = "3", Title = "Отдых", Details = "Пожарить шашлыки", Completed = true }
-        );
+        /*modelBuilder.Entity<ToDo>().HasData(
+            new ToDo { Title = "Govno", Details = "Eat govno", Completed = true },
+            new ToDo { Title = "Mocha", Details = "drink mocha", Completed = true },
+            new ToDo { Title = "pivo", Details = "drink vodka", Completed = true }
+        );*/
+
+        modelBuilder.Entity<ToDo>(entity => {
+            entity.HasKey(x => x.Id);
+            entity.HasIndex(x => x.Id).IsUnique();
+        });
     }
+
+    public Task<int> SaveChangesAsync() => base.SaveChangesAsync();
 }
