@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Commands\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ToDoInterfaces\ToDoInterfaces.csproj" />
     <ProjectReference Include="..\..\DAL\ToDoInterfacesDAL\ToDoInterfacesDAL.csproj" />
     <ProjectReference Include="..\ToDoDTOs\ToDoDTOs.csproj" />

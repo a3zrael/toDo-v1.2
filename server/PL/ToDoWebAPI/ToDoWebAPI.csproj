@@ -9,14 +9,15 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>    
-    <ProjectReference Include="..\..\BLL\ToDoDTOs\ToDoDTOs.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\BLL\ToDoDTOs\ToDoDTOs.csproj" />    
+    <ProjectReference Include="..\..\DAL\ToDoPersistence\ToDoPersistence.csproj" />    
+    <ProjectReference Include="..\..\DAL\ToDoInterfacesDAL\ToDoInterfacesDAL.csproj" />    
+    <ProjectReference Include="..\..\BLL\ToDoInterfaces\ToDoInterfaces.csproj" />    
+    <ProjectReference Include="..\..\BLL\ToDoApplication\ToDoApplication.csproj" />
   </ItemGroup>
 
 </Project>

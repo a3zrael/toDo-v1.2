@@ -20,6 +20,7 @@ public class SqlDAO : IToDoDAO
     }
     public async Task AddToDo(ToDo td){
         await dbContext.toDos.AddAsync(td);
+        await dbContext.SaveChangesAsync();
     }
     public async Task DeleteToDo(Guid id){
         var td = new ToDo{
@@ -28,12 +29,15 @@ public class SqlDAO : IToDoDAO
         dbContext.toDos.Remove(td);
         await dbContext.SaveChangesAsync();
     }
-    public async Task UpdateToDo(Guid id, ToDo _td){
-        var td = await dbContext.toDos.FirstOrDefaultAsync(td => td.Id == _td.Id);
+    public async Task UpdateToDo(Guid id, ToDo td){
+        var _td = await dbContext.toDos.FirstOrDefaultAsync(todo => todo.Id == id);
+        if (_td == null){
+            throw new Exception("User not found");
+        }
 
-        td.Title = _td.Title;
-        td.Completed = _td.Completed;
-        td.Details = _td.Details;
+        _td.Title = td.Title;
+        _td.Details = td.Details;
+        _td.Completed = td.Completed;    
 
         await dbContext.SaveChangesAsync();
     }
