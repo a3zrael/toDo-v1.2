@@ -6,7 +6,7 @@ import { Content } from "../pages/content";
 
 import "./App.scss";
 
-export const App = () => {
+export const App: React.FC = () => {
   return (
     <Fragment>
       <Header />

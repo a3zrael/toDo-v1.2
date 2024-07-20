@@ -1,21 +1,26 @@
 import React from "react";
 
-import { Checkbox } from "../../../shared/checkbox";
-
 import "./index.scss";
 
 interface TaskProps {
   task: string;
   description?: string;
+  click: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Task = (props: TaskProps) => {
+export const Task: React.FC<TaskProps> = (props: TaskProps) => {
   return (
     <div className="wrapTodo">
-      <div className="todo">
-        <span>{props.task}</span> <Checkbox />
+      <div className="left">
+        <span>{props.task}</span>
+        <span className="description">{props.description}</span>
       </div>
-      <span className="description">{props.description}</span>
+      <div className="right">
+        <button onClick={props.click}>x</button>
+        <div>
+          <input type="checkbox" />
+        </div>
+      </div>
     </div>
   );
 };

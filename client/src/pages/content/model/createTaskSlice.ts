@@ -18,16 +18,7 @@ interface TodoState {
 }
 
 const initialState: TodoState = {
-  todos: [
-    { id: 1, title: "Learn Redux", completed: false },
-    {
-      id: 2,
-      title: "Read TypeScript documentation",
-      description:
-        "Read TypeScript documentationRead TypeScript documentationRead TypeScript documentationRead TypeScript documentation",
-      completed: true,
-    },
-  ],
+  todos: [],
 };
 
 export const todoSlice = createSlice({
@@ -46,9 +37,12 @@ export const todoSlice = createSlice({
         todos: [...state.todos, newTodo],
       };
     },
+    deleteTodo: (state, action: PayloadAction<number>) => {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+    },
   },
 });
 
-export const { addTodo } = todoSlice.actions;
+export const { addTodo, deleteTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
