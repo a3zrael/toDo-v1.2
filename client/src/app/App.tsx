@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Fragment } from "react/jsx-runtime";
-import { Header } from "../entities/header";
-import { Content } from "../entities/content";
+import { Header } from "../shared/header";
+import { Content } from "../pages/content";
 
 import "./App.scss";
 
