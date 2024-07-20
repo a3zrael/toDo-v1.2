@@ -15,23 +15,15 @@
     max-height: 200px;
     overflow: auto;
 
-    background:
-        /* Shadow Cover TOP */ linear-gradient(
-          white 30%,
-          rgba(255, 255, 255, 0)
-        )
-        center top,
-      /* Shadow Cover BOTTOM */
-        linear-gradient(rgba(255, 255, 255, 0), white 70%) center bottom,
-      /* Shadow TOP */
-        radial-gradient(
+    background: linear-gradient(white 30%, rgba(255, 255, 255, 0)) center top,
+      linear-gradient(rgba(255, 255, 255, 0), white 70%) center bottom,
+      radial-gradient(
           farthest-side at 50% 0,
           rgba(0, 0, 0, 0.2),
           rgba(0, 0, 0, 0)
         )
         center top,
-      /* Shadow BOTTOM */
-        radial-gradient(
+      radial-gradient(
           farthest-side at 50% 100%,
           rgba(0, 0, 0, 0.2),
           rgba(0, 0, 0, 0)
@@ -45,6 +37,8 @@
 
   .description {
     display: flex;
-    color: black;
+    color: rgba(16, 16, 16, 0.597);
+    font-size: 13px;
+    flex-wrap: wrap;
   }
 }
