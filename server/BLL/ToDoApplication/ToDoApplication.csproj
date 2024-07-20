@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoInterfaces\ToDoInterfaces.csproj" />
+    <ProjectReference Include="..\..\DAL\ToDoInterfacesDAL\ToDoInterfacesDAL.csproj" />
+    <ProjectReference Include="..\ToDoDTOs\ToDoDTOs.csproj" />
+    <ProjectReference Include="..\..\Core\ToDoDomain\ToDoDomain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
 </Project>

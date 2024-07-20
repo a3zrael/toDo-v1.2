@@ -1,43 +1,51 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using ToDoInterfaces;
+using ToDoInterfacesDAL;
+using ToDoPersistence;
+using ToDoApplication;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "ToDo API",
+        Description = "Govno Zalupa Penis",
+        TermsOfService = new Uri("https://example.com/terms"),
+        Contact = new OpenApiContact
+        {
+            Name = "Example Contact",
+            Url = new Uri("https://example.com/contact")
+        },
+        License = new OpenApiLicense
+        {
+            Name = "Example License",
+            Url = new Uri("https://example.com/license")
+        }
+    });
+});
+
 var _connection = builder.Configuration.GetConnectionString("connection");
-builder.Services.AddDbContext<ToDoDbContext>(options => options.UseNpgsql(_connection));
+
+builder.Services.AddDbContext<IToDoDbContext, ToDoDbContext>(options => options.UseNpgsql(_connection));
+
+builder.Services.AddScoped<IToDoDAO, SqlDAO>();
+builder.Services.AddScoped<IToDoBLL, ToDoBusinessLogic>();
 
 var app = builder.Build();
 
-/*app.MapGet("/api/todolist", async (ToDoDbContext db) => await db.toDos.ToListAsync());
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-app.MapGet("/api/todolist/{id}", async (string id, ToDoDbContext db) => {
-    ToDo? td = await db.toDos.FirstOrDefaultAsync(td => td.Id == id);
-    if (td == null) return Results.NotFound(new {message = "Пользователь не найден"});
-    return Results.Json(td);
-});
-
-app.MapPost("/api/todolist", async (ToDo td, ToDoDbContext db) =>{
-    await db.toDos.AddAsync(td);s
-    await db.SaveChangesAsync();
-    return td;
-});
-
-app.MapDelete("/api/todolist/{id}", async (string id, ToDoDbContext db) => {
-    ToDo? td = await db.toDos.FirstOrDefaultAsync(td => td.Id == id);
-    if (td == null) return Results.NotFound(new {message = "Пользователь не найден"});
-    db.toDos.Remove(td);
-    await db.SaveChangesAsync();
-    return Results.Json(td);
-});
-
-app.MapPut("/api/todolist/{id}", async (ToDo _td, ToDoDbContext db) => {
-    var td = await db.toDos.FirstOrDefaultAsync(td => td.Id == _td.Id); 
-    if(td == null) return Results.NotFound(new { message = "Пользователь не найден"});
-
-    td.Title = _td.Title;
-    td.Details = _td.Details;
-    td.Completed = _td.Completed;
-    await db.SaveChangesAsync();
-    return Results.Json(td);
-});*/
+app.UseHttpsRedirection();
+app.MapControllers();
 
 app.Run();
