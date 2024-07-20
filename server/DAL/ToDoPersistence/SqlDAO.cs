@@ -32,7 +32,7 @@ public class SqlDAO : IToDoDAO
     public async Task UpdateToDo(Guid id, ToDo td){
         var _td = await dbContext.toDos.FirstOrDefaultAsync(todo => todo.Id == id);
         if (_td == null){
-            throw new Exception("User not found");
+            throw new Exception("User not found!");
         }
 
         _td.Title = td.Title;
