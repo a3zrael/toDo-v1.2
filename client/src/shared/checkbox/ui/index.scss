@@ -1,5 +1,5 @@
 :root {
-  --form-control-color: rgb(76, 153, 51);
+  --form-control-color: rebeccapurple;
   --form-control-disabled: #959495;
 }
 
@@ -21,7 +21,7 @@ form {
 
 .form-control {
   font-family: system-ui, sans-serif;
-  font-size: 5rem;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 1.1;
   display: grid;
@@ -30,7 +30,7 @@ form {
 }
 
 .form-control + .form-control {
-  margin-top: 3em;
+  margin-top: 1em;
 }
 
 .form-control--disabled {
@@ -69,11 +69,17 @@ input[type="checkbox"]::before {
   transform-origin: bottom left;
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
   background-color: CanvasText;
 }
 
 input[type="checkbox"]:checked::before {
   transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
 }
 
 input[type="checkbox"]:disabled {

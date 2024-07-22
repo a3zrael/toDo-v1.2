@@ -21,7 +21,7 @@ export const Content: React.FC = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
 
-  const isSearchActive = searchTerm !== ""; // замените searchQuery на ваше состояние поиска
+  const isSearchActive = searchTerm !== "";
 
   const handleAddTodo = (): void => {
     if (title.trim() && description.trim()) {
@@ -31,20 +31,12 @@ export const Content: React.FC = () => {
     }
   };
 
-  const handleDeleteTodo = (id: number): void => {
-    dispatch(deleteTodo(id));
-  };
-
-  const handleSearchTodo = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch(searchTodo(e.target.value));
-  };
-
   return (
     <div className="root">
       <div>
         <input
           onChange={(e) => {
-            handleSearchTodo(e);
+            dispatch(searchTodo(e.target.value));
           }}
           className="searchInput"
           value={searchTerm}
@@ -73,24 +65,28 @@ export const Content: React.FC = () => {
         <div className="todos">
           {isSearchActive ? (
             searchTodos.length !== 0 ? (
-              searchTodos.map(({ id, title, description }: Todo) => (
+              searchTodos.map((todo: Todo) => (
                 <Task
-                  click={() => handleDeleteTodo(id)}
-                  key={id}
-                  task={title}
-                  description={description}
+                  click={() => dispatch(deleteTodo(todo.id))}
+                  key={todo.id}
+                  task={todo.title}
+                  description={todo.description}
+                  completed={todo.completed}
+                  // toggleCompleted={dispatch(toggleTodoComplete(todo.id))}
                 />
               ))
             ) : (
               <p className="no_todo">No tasks found.</p>
             )
           ) : (
-            todos.map(({ id, title, description }: Todo) => (
+            todos.map((todo: Todo) => (
               <Task
-                click={() => handleDeleteTodo(id)}
-                key={id}
-                task={title}
-                description={description}
+                click={() => dispatch(deleteTodo(todo.id))}
+                key={todo.id}
+                task={todo.title}
+                description={todo.description}
+                completed={todo.completed}
+                // toggleCompleted={dispatch(toggleTodoComplete(todo.id))}
               />
             ))
           )}

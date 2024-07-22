@@ -1,8 +1,18 @@
-// import React, { useState } from "react";
+import React from "react";
 
-// import "./index.scss";
+import "./index.scss";
 
-// export const Checkbox = () => {
-//   const [val, setVal] = useState(false);
-//   return <input onClick={() => setVal((prev) => !prev)} type="checkbox" />;
-// };
+interface CheckboxProps {
+  completed: boolean;
+  onChange: () => void;
+}
+
+export const Checkbox: React.FC<CheckboxProps> = (props) => {
+  return (
+    <input
+      type="checkbox"
+      checked={props.completed}
+      onChange={props.onChange}
+    />
+  );
+};

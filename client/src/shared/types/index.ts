@@ -7,9 +7,18 @@ export interface Todo {
 
 export interface AddTodoPayload {
   title: string;
-  description: string;
+  description?: string;
 }
 
 export interface TodoState {
   todos: Todo[];
+  searchTodos: Todo[];
+  searchTerm: string;
+}
+
+export interface TaskProps {
+  task: string;
+  description?: string;
+  completed: boolean;
+  click: React.MouseEventHandler<HTMLButtonElement>;
 }

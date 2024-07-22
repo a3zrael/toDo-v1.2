@@ -1,22 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface Todo {
-  id: number;
-  title: string;
-  description?: string;
-  completed: boolean;
-}
-
-interface AddTodoPayload {
-  title: string;
-  description?: string;
-}
-
-interface TodoState {
-  todos: Todo[];
-  searchTodos: Todo[];
-  searchTerm: string;
-}
+import { AddTodoPayload, Todo, TodoState } from "../../../shared/types";
 
 const initialState: TodoState = {
   todos: [],
@@ -49,9 +32,16 @@ export const todoSlice = createSlice({
         todo.title.toLowerCase().includes(action.payload.toLowerCase())
       );
     },
+    toggleTodoComplete: (state: TodoState, action: PayloadAction<number>) => {
+      const todo = state.todos.find((todo) => todo.id === action.payload);
+      if (todo) {
+        todo.completed = !todo.completed;
+      }
+    },
   },
 });
 
-export const { addTodo, deleteTodo, searchTodo } = todoSlice.actions;
+export const { addTodo, deleteTodo, searchTodo, toggleTodoComplete } =
+  todoSlice.actions;
 
 export default todoSlice.reducer;
