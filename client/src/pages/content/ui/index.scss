@@ -50,7 +50,14 @@
     background-color: white;
     border-radius: 10px;
     height: 400px;
-    max-width: 350px;
+    max-width: 370px;
     overflow-y: scroll;
+
+    .no_todo {
+      color: black;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
   }
 }

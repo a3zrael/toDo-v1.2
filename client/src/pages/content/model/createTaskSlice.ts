@@ -1,4 +1,3 @@
-// features/counter/counterSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Todo {
@@ -10,22 +9,26 @@ interface Todo {
 
 interface AddTodoPayload {
   title: string;
-  description: string;
+  description?: string;
 }
 
 interface TodoState {
   todos: Todo[];
+  searchTodos: Todo[];
+  searchTerm: string;
 }
 
 const initialState: TodoState = {
   todos: [],
+  searchTodos: [],
+  searchTerm: "",
 };
 
 export const todoSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<AddTodoPayload>) => {
+    addTodo: (state: TodoState, action: PayloadAction<AddTodoPayload>) => {
       const newTodo: Todo = {
         id: state.todos.length + 1,
         title: action.payload.title,
@@ -37,12 +40,18 @@ export const todoSlice = createSlice({
         todos: [...state.todos, newTodo],
       };
     },
-    deleteTodo: (state, action: PayloadAction<number>) => {
+    deleteTodo: (state: TodoState, action: PayloadAction<number>) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+    },
+    searchTodo: (state: TodoState, action: PayloadAction<string>) => {
+      state.searchTerm = action.payload;
+      state.searchTodos = state.todos.filter((todo) =>
+        todo.title.toLowerCase().includes(action.payload.toLowerCase())
+      );
     },
   },
 });
 
-export const { addTodo, deleteTodo } = todoSlice.actions;
+export const { addTodo, deleteTodo, searchTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
