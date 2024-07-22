@@ -1,4 +1,3 @@
-// features/counter/counterSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Todo {
@@ -10,31 +9,26 @@ interface Todo {
 
 interface AddTodoPayload {
   title: string;
-  description: string;
+  description?: string;
 }
 
 interface TodoState {
   todos: Todo[];
+  searchTodos: Todo[];
+  searchTerm: string;
 }
 
 const initialState: TodoState = {
-  todos: [
-    { id: 1, title: "Learn Redux", completed: false },
-    {
-      id: 2,
-      title: "Read TypeScript documentation",
-      description:
-        "Read TypeScript documentationRead TypeScript documentationRead TypeScript documentationRead TypeScript documentation",
-      completed: true,
-    },
-  ],
+  todos: [],
+  searchTodos: [],
+  searchTerm: "",
 };
 
 export const todoSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<AddTodoPayload>) => {
+    addTodo: (state: TodoState, action: PayloadAction<AddTodoPayload>) => {
       const newTodo: Todo = {
         id: state.todos.length + 1,
         title: action.payload.title,
@@ -46,9 +40,18 @@ export const todoSlice = createSlice({
         todos: [...state.todos, newTodo],
       };
     },
+    deleteTodo: (state: TodoState, action: PayloadAction<number>) => {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+    },
+    searchTodo: (state: TodoState, action: PayloadAction<string>) => {
+      state.searchTerm = action.payload;
+      state.searchTodos = state.todos.filter((todo) =>
+        todo.title.toLowerCase().includes(action.payload.toLowerCase())
+      );
+    },
   },
 });
 
-export const { addTodo } = todoSlice.actions;
+export const { addTodo, deleteTodo, searchTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
