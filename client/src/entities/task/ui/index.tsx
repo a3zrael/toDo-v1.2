@@ -1,12 +1,9 @@
 import React from "react";
+import { TaskProps } from "../../../shared/types";
+
+// import { Checkbox } from "../../../shared/checkbox/ui";
 
 import "./index.scss";
-
-interface TaskProps {
-  task: string;
-  description?: string;
-  click: React.MouseEventHandler<HTMLButtonElement>;
-}
 
 export const Task: React.FC<TaskProps> = (props: TaskProps) => {
   return (
@@ -17,9 +14,12 @@ export const Task: React.FC<TaskProps> = (props: TaskProps) => {
       </div>
       <div className="right">
         <button onClick={props.click}>x</button>
-        <div>
-          <input type="checkbox" />
-        </div>
+        {/* <div>
+          <Checkbox
+            completed={props.completed}
+            onChange={props.toggleCompleted}
+          />
+        </div> */}
       </div>
     </div>
   );

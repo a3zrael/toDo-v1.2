@@ -1,9 +1,10 @@
 import React from "react";
+import "./index.scss";
 
 export const Header: React.FC = () => {
   return (
     <>
-      <h1>ultraTodosPlus</h1>
+      <h1 className="header">ToDo</h1>
     </>
   );
 };
