@@ -33,7 +33,7 @@ export const Content: React.FC = () => {
 
   return (
     <div className="root">
-      <div>
+      <div className="searchWrap">
         <input
           onChange={(e) => {
             dispatch(searchTodo(e.target.value));
@@ -62,34 +62,105 @@ export const Content: React.FC = () => {
           />
           <button onClick={handleAddTodo}>add</button>
         </div>
-        <div className="todos">
-          {isSearchActive ? (
-            searchTodos.length !== 0 ? (
-              searchTodos.map((todo: Todo) => (
-                <Task
-                  click={() => dispatch(deleteTodo(todo.id))}
-                  key={todo.id}
-                  task={todo.title}
-                  description={todo.description}
-                  completed={todo.completed}
-                  // toggleCompleted={dispatch(toggleTodoComplete(todo.id))}
-                />
-              ))
-            ) : (
-              <p className="no_todo">No tasks found.</p>
-            )
-          ) : (
-            todos.map((todo: Todo) => (
-              <Task
-                click={() => dispatch(deleteTodo(todo.id))}
-                key={todo.id}
-                task={todo.title}
-                description={todo.description}
-                completed={todo.completed}
-                // toggleCompleted={dispatch(toggleTodoComplete(todo.id))}
-              />
-            ))
-          )}
+        // TODO Разбить на компоненты
+        <div className="board">
+          <div>
+            <p>todo</p>
+            <div className="todos">
+              {isSearchActive ? (
+                searchTodos.length !== 0 ? (
+                  searchTodos.map((todo: Todo) => (
+                    <Task
+                      click={() => dispatch(deleteTodo(todo.id))}
+                      key={todo.id}
+                      task={todo.title}
+                      description={todo.description}
+                      completed={todo.completed}
+                      // toggleCompleted={dispatch(toggleTodoComplete(todo.id))}
+                    />
+                  ))
+                ) : (
+                  <p className="no_todo">No tasks found.</p>
+                )
+              ) : (
+                todos.map((todo: Todo) => (
+                  <Task
+                    click={() => dispatch(deleteTodo(todo.id))}
+                    key={todo.id}
+                    task={todo.title}
+                    description={todo.description}
+                    completed={todo.completed}
+                    // toggleCompleted={dispatch(toggleTodoComplete(todo.id))}
+                  />
+                ))
+              )}
+            </div>
+          </div>
+
+          <div>
+            <p>progress</p>
+            <div className="todos">
+              {isSearchActive ? (
+                searchTodos.length !== 0 ? (
+                  searchTodos.map((todo: Todo) => (
+                    <Task
+                      click={() => dispatch(deleteTodo(todo.id))}
+                      key={todo.id}
+                      task={todo.title}
+                      description={todo.description}
+                      completed={todo.completed}
+                      // toggleCompleted={dispatch(toggleTodoComplete(todo.id))}
+                    />
+                  ))
+                ) : (
+                  <p className="no_todo">No tasks found.</p>
+                )
+              ) : (
+                todos.map((todo: Todo) => (
+                  <Task
+                    click={() => dispatch(deleteTodo(todo.id))}
+                    key={todo.id}
+                    task={todo.title}
+                    description={todo.description}
+                    completed={todo.completed}
+                    // toggleCompleted={dispatch(toggleTodoComplete(todo.id))}
+                  />
+                ))
+              )}
+            </div>
+          </div>
+          <div>
+            <p>done</p>
+            <div className="todos">
+              {isSearchActive ? (
+                searchTodos.length !== 0 ? (
+                  searchTodos.map((todo: Todo) => (
+                    <Task
+                      click={() => dispatch(deleteTodo(todo.id))}
+                      key={todo.id}
+                      task={todo.title}
+                      description={todo.description}
+                      completed={todo.completed}
+                      // toggleCompleted={dispatch(toggleTodoComplete(todo.id))}
+                    />
+                  ))
+                ) : (
+                  <p className="no_todo">No tasks found.</p>
+                )
+              ) : (
+                todos.map((todo: Todo) => (
+                  <Task
+                    click={() => dispatch(deleteTodo(todo.id))}
+                    key={todo.id}
+                    task={todo.title}
+                    description={todo.description}
+                    completed={todo.completed}
+                    // toggleCompleted={dispatch(toggleTodoComplete(todo.id))}
+                  />
+                ))
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
