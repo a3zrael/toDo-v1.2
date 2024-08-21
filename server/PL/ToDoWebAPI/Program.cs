@@ -15,7 +15,7 @@ builder.Services.AddSwaggerGen(options =>
     {
         Version = "v1",
         Title = "ToDo API",
-        Description = "Govno Zalupa Penis",
+        Description = "Hello HR!",
         TermsOfService = new Uri("https://example.com/terms"),
         Contact = new OpenApiContact
         {

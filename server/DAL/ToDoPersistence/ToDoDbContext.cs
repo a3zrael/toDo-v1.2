@@ -15,6 +15,7 @@ public class ToDoDbContext : DbContext, IToDoDbContext {
             new ToDo { Title = "pivo", Details = "drink vodka", Completed = true }
         );*/
 
+        
         modelBuilder.Entity<ToDo>(entity => {
             entity.HasKey(x => x.Id);
             entity.HasIndex(x => x.Id).IsUnique();
