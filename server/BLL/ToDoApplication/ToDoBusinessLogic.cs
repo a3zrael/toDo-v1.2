@@ -46,8 +46,12 @@ public class ToDoBusinessLogic : IToDoBLL
 
      public async Task AddToDo(ToDoAddItemDTO td){
         try{
+            Enum.Parse<PriorityType>(td.Priority);
             var tdAddDTO = _toDoAddItem.Map<ToDoAddItemDTO, ToDo>(td);
             await toDoDAO.AddToDo(tdAddDTO);           
+        }
+        catch (ArgumentException){
+            throw new ArgumentException("Неверное значение приоритета задачи!");
         }
         catch (Exception ex){
             throw new Exception(ex.Message);
@@ -65,8 +69,48 @@ public class ToDoBusinessLogic : IToDoBLL
 
      public async Task UpdateToDo(Guid id, ToDoAddItemDTO td){
         try{
+            Enum.Parse<PriorityType>(td.Priority);
             var tdDTO = _toDoAddItem.Map<ToDoAddItemDTO, ToDo>(td);
             await toDoDAO.UpdateToDo(id, tdDTO);
+        }
+        catch (ArgumentException){
+            throw new ArgumentException("Неверное значение приоритета задачи!");
+        }
+        catch(Exception ex){
+            throw new Exception(ex.Message);
+        }
+     }
+     public async Task<List<ToDoItemDTO>> SortByPriority(){
+        try {
+            var td = await toDoDAO.SortByPriority();
+            var tdDTO = _toDoItem.Map<List<ToDo>, List<ToDoItemDTO>>(td);
+            return tdDTO;
+        }
+        catch(Exception ex){
+            throw new Exception(ex.Message);
+        }
+     }
+     public async Task<List<ToDoItemDTO>> GetByTitle(string title){
+        try{
+            var td = await toDoDAO.GetByTitle(title);
+            var tdDTO = _toDoItem.Map<List<ToDo>, List<ToDoItemDTO>>(td);
+            return tdDTO;
+        }
+        catch(Exception ex){
+            throw new Exception(ex.Message);
+        }
+     }
+     public async Task IsDone(Guid id){
+        try{
+            await toDoDAO.IsDone(id);
+        }
+        catch(Exception ex){
+            throw new Exception(ex.Message);
+        }
+     }
+     public async Task EverythingIsDone(){
+        try{
+            await toDoDAO.EverythingIsDone();
         }
         catch(Exception ex){
             throw new Exception(ex.Message);
