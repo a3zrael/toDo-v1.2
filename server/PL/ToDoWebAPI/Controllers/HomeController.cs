@@ -68,4 +68,50 @@ public class HomeController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+
+    [HttpGet]
+    [Route("sortByPriority")]
+    public async Task<ActionResult> SortByPriority(){
+        try{
+            var td = await _toDoBLL.SortByPriority();
+            return Ok(td);
+        }
+        catch(Exception ex){
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet]
+    [Route("getByTitle")]
+    public async Task<ActionResult<ToDoItemDTO>> GetByTitle(string title){
+        try{
+            var td = await _toDoBLL.GetByTitle(title);
+            return Ok(td);
+        }
+        catch(Exception ex){
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPut]
+    [Route("isDone")]
+    public async Task<ActionResult> IsDone(Guid id){
+        try{
+            await _toDoBLL.IsDone(id);
+            return Ok();
+        }
+        catch(Exception ex){
+            return BadRequest(ex.Message);
+        }
+    }
+    [HttpPatch]
+    public async Task<ActionResult> EverythingIsDone(){
+        try{
+            await _toDoBLL.EverythingIsDone();
+            return Ok();
+        }
+        catch(Exception ex){
+            return BadRequest(ex.Message);
+        }
+    }
 }
